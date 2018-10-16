@@ -148,6 +148,7 @@ def draw_wall_on_right(rectangle, n, window):
         for l in range(k + 1):
             nrect = rg.Rectangle(rectangle.get_upper_left_corner(), rectangle.get_lower_right_corner())
             nrect.attach_to(window)
+            
             window.render(.1)
 
 # ----------------------------------------------------------------------
