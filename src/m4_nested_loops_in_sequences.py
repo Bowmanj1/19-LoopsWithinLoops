@@ -300,6 +300,7 @@ def print_characters_slanted(sequence_of_strings):
             b = str(' ' * l + a[l])
             print(b)
 
+
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------

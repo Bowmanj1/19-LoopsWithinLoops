@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of TWO-DIMENSIONAL GRAPHICS.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jacob Bowman.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -80,9 +80,29 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+    for k in range(r + 1):
+        temp = circle.center
+        for l in range(3):
+            ncircle = rg.Circle(circle.center, circle.radius)
+            ncircle.fill_color = circle.fill_color
+            ncircle.attach_to(window)
+            window.render(.1)
+            circle.center.x = circle.center.x + (circle.radius * 2)
+        circle.center.x = temp.x - (6 * circle.radius)
+        circle.center.y = temp.y + (circle.radius * 2)
+    for k in range(3):
+        temp = circle.center
+        for l in range(c + 3):
+            ncircle = rg.Circle(circle.center, circle.radius)
+            ncircle.fill_color = circle.fill_color
+            ncircle.attach_to(window)
+            window.render(.1)
+            circle.center.x = circle.center.x + (circle.radius * 2)
+        circle.center.x = temp.x - ((c + 3) * 2 * circle.radius)
+        circle.center.y = temp.y + (circle.radius * 2)
 
 
 def run_test_draw_wall_on_right():
@@ -124,7 +144,11 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    for k in range(n):
+        for l in range(k + 1):
+            nrect = rg.Rectangle(rectangle.get_upper_left_corner(), rectangle.get_lower_right_corner())
+            nrect.attach_to(window)
+            window.render(.1)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
